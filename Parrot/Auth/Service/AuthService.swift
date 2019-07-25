@@ -32,4 +32,15 @@ class AuthService {
             }
         }
     }
+    
+    func postRegister(name: String, userName: String, email: String, password: String) {
+        AuthRequestFactory.postRegister(name: name, userName: userName, email: email, password: password).validate().responseObject { (response: DataResponse<User>) in
+            switch response.result {
+                case .success:
+                    self.delegate.success()
+                case .failure(let error):
+                    self.delegate.failure(error: error.localizedDescription)
+            }
+        }
+    }
 }

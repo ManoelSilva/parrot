@@ -19,8 +19,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.service = AuthService(delegate: self)
-        self.loginButton.layer.cornerRadius = 10
+        self.loginButton.layer.cornerRadius = 5
         self.setUpRegisterLabel()
+
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func loginButtonAction(_ sender: Any) {

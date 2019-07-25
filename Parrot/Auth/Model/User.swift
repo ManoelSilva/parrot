@@ -13,6 +13,7 @@ import ObjectMapper
 class User: Object, Mappable {
     var id = RealmOptional<Int>()
     
+    @objc dynamic var token: String?
     @objc dynamic var name: String?
     @objc dynamic var userName: String?
     @objc dynamic var email: String?

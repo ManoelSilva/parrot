@@ -21,6 +21,10 @@ class SessionControl {
     }
     
     static func setHeaders() {
-        
+        if let user = self.user {
+            if let token = user.token {
+                self.headers["token"] = token
+            }
+        }
     }
 }

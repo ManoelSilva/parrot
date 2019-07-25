@@ -13,7 +13,6 @@
         <!--Login View Controller-->
         <scene sceneID="gCb-69-cfi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lET-C4-ah1" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" id="jK1-wY-tGt" customClass="LoginViewController" customModule="Parrot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pyk-bV-fPQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -94,6 +93,7 @@
                         <outlet property="registerLabel" destination="NeI-jh-XAV" id="4vI-Jr-y4u"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lET-C4-ah1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1984.057971014493" y="138.61607142857142"/>
         </scene>
@@ -109,31 +109,25 @@
                                 <rect key="frame" x="32" y="303" width="350" height="300"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="YtI-BR-dG5">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="63"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E6x-4H-0uV">
-                                        <rect key="frame" x="0.0" y="63" width="350" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="79" width="350" height="63"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0p-GE-ryi">
-                                        <rect key="frame" x="0.0" y="126.5" width="350" height="47"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="54h-90-gzA">
-                                        <rect key="frame" x="0.0" y="189.5" width="350" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="158" width="350" height="63"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xGJ-Vn-xo2">
-                                        <rect key="frame" x="0.0" y="253" width="350" height="47"/>
+                                        <rect key="frame" x="0.0" y="237" width="350" height="63"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -150,7 +144,10 @@
                                     <constraint firstAttribute="height" constant="36" id="ayH-6L-Hga"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Próximo"/>
+                                <state key="normal" title="Cadastrar"/>
+                                <connections>
+                                    <action selector="registerButton:" destination="anu-kF-yrR" eventType="touchUpInside" id="fbs-qX-8Ux"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie sua conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQB-8c-9fG">
                                 <rect key="frame" x="32" y="76" width="366" height="21.5"/>
@@ -177,9 +174,9 @@
                         <viewLayoutGuide key="safeArea" id="1zT-gn-fZo"/>
                     </view>
                     <connections>
-                        <outlet property="confirmationTextField" destination="e0p-GE-ryi" id="v91-4R-flh"/>
                         <outlet property="emailTextField" destination="54h-90-gzA" id="td8-qj-Flf"/>
                         <outlet property="nameTextField" destination="YtI-BR-dG5" id="guc-V1-Avw"/>
+                        <outlet property="nextButton" destination="W4A-Qe-L5p" id="GuL-Nv-lAl"/>
                         <outlet property="passwordTextField" destination="xGJ-Vn-xo2" id="PbH-wo-GjR"/>
                         <outlet property="userNameTextField" destination="E6x-4H-0uV" id="viA-1q-Zqk"/>
                     </connections>
