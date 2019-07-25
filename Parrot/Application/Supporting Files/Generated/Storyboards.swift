@@ -53,17 +53,19 @@ internal extension UIViewController {
 
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum StoryboardScene {
+  internal enum Auth: StoryboardType {
+    internal static let storyboardName = "Auth"
+
+    internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: Auth.self)
+
+    internal static let loginViewController = SceneType<Parrot.LoginViewController>(storyboard: Auth.self, identifier: "LoginViewController")
+
+    internal static let registerViewController = SceneType<Parrot.RegisterViewController>(storyboard: Auth.self, identifier: "RegisterViewController")
+  }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
     internal static let initialScene = InitialSceneType<UIViewController>(storyboard: LaunchScreen.self)
-  }
-  internal enum Main: StoryboardType {
-    internal static let storyboardName = "Main"
-
-    internal static let initialScene = InitialSceneType<Parrot.LoginViewController>(storyboard: Main.self)
-
-    internal static let loginViewController = SceneType<Parrot.LoginViewController>(storyboard: Main.self, identifier: "LoginViewController")
   }
 }
 

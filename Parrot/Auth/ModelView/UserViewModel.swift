@@ -14,5 +14,9 @@ struct UserView {
 }
 
 class UserViewModel {
-    
+    static func save(user: User) {
+        try? uiRealm.write {
+            uiRealm.add(user, update: .all)
+        }
+    }
 }
