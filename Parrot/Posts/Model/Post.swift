@@ -1,8 +1,8 @@
 //
-//  User.swift
+//  Post.swift
 //  Parrot
 //
-//  Created by administrador on 24/07/19.
+//  Created by administrador on 26/07/19.
 //  Copyright © 2019 Treinamento. All rights reserved.
 //
 
@@ -10,15 +10,14 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
-class User: Object, Mappable {
+class Post: Object, Mappable {
     var id = RealmOptional<Int>()
+    var user = User()
+    var likes = RealmOptional<Int>()
     
-    @objc dynamic var token: String?
-    @objc dynamic var name: String?
-    @objc dynamic var userName: String?
+    @objc dynamic var post: String?
     @objc dynamic var message: String?
-    @objc dynamic var email: String?
-    @objc dynamic var photo: String?
+    @objc dynamic var image: String?
     
     required convenience init?(map: Map) {
         self.init()
@@ -30,10 +29,10 @@ class User: Object, Mappable {
     
     func mapping(map: Map) {
         self.id.value                       <- map["id"]
-        self.name                           <- map["nome"]
-        self.email                          <- map["email"]
-        self.userName                       <- map["username"]
-        self.photo                          <- map["foto"]
+        self.user                           <- map["autor"]
         self.message                        <- map["mensagem"]
+        self.likes.value                    <- map["curtidas"]
+        self.post                           <- map["postagem"]
+        self.image                          <- map["imagem"]
     }
 }

@@ -32,9 +32,8 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController: AuthServiceDelegate {
     func success() {
-        self.dismiss(animated: true) {
-            ScreenManager.setUpInitViewController()
-        }
+        self.navigationController?.popViewController(animated: true)
+        ScreenManager.setUpInitViewController()
     }
     
     func failure(error: String) {

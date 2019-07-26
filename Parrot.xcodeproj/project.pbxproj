@@ -16,6 +16,12 @@
 		832A642D22E9DBF900495DF7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832A642C22E9DBF900495DF7 /* RegisterViewController.swift */; };
 		832F532922E9F7560071FC89 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832F532822E9F7560071FC89 /* Auth.storyboard */; };
 		8364E07C22E8893F00D7DA5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8364E07B22E8893F00D7DA5B /* User.swift */; };
+		83E3806522EB1D6F00B4D6D7 /* Posts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E3806422EB1D6F00B4D6D7 /* Posts.storyboard */; };
+		83E3806922EB252D00B4D6D7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E3806822EB252D00B4D6D7 /* Post.swift */; };
+		83E3806B22EB267100B4D6D7 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E3806A22EB267100B4D6D7 /* PostViewModel.swift */; };
+		83E3806D22EB268600B4D6D7 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E3806C22EB268600B4D6D7 /* PostService.swift */; };
+		83E3806F22EB269B00B4D6D7 /* PostRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E3806E22EB269B00B4D6D7 /* PostRequestFactory.swift */; };
+		83E3807122EB26AE00B4D6D7 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E3807022EB26AE00B4D6D7 /* PostViewController.swift */; };
 		A8FFD89D3F84B8615E2F9223 /* Pods_Parrot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45199C50E1D69545D0081FCB /* Pods_Parrot.framework */; };
 		F66C788922D8BC45001B5FDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C788822D8BC45001B5FDA /* AppDelegate.swift */; };
 		F66C788B22D8BC45001B5FDA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C788A22D8BC45001B5FDA /* LoginViewController.swift */; };
@@ -41,6 +47,12 @@
 		832A642C22E9DBF900495DF7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		832F532822E9F7560071FC89 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		8364E07B22E8893F00D7DA5B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		83E3806422EB1D6F00B4D6D7 /* Posts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Posts.storyboard; sourceTree = "<group>"; };
+		83E3806822EB252D00B4D6D7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		83E3806A22EB267100B4D6D7 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		83E3806C22EB268600B4D6D7 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		83E3806E22EB269B00B4D6D7 /* PostRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestFactory.swift; sourceTree = "<group>"; };
+		83E3807022EB26AE00B4D6D7 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		DAA8DD7CED27ACD4C7B7E950 /* Pods-Parrot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parrot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parrot/Pods-Parrot.release.xcconfig"; sourceTree = "<group>"; };
 		F66C788522D8BC45001B5FDA /* Parrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F66C788822D8BC45001B5FDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,8 +110,8 @@
 		832A642E22E9DE0900495DF7 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				8364E07922E887BA00D7DA5B /* ModelView */,
 				8364E07822E887AF00D7DA5B /* Model */,
+				83E3806722EB24EE00B4D6D7 /* ViewModel */,
 				8364E07722E887AA00D7DA5B /* Service */,
 				8364E07622E887A100D7DA5B /* Controller */,
 				832F532822E9F7560071FC89 /* Auth.storyboard */,
@@ -110,7 +122,6 @@
 		8364E07622E887A100D7DA5B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8364E07A22E8882B00D7DA5B /* Cell */,
 				F66C788A22D8BC45001B5FDA /* LoginViewController.swift */,
 				832A642C22E9DBF900495DF7 /* RegisterViewController.swift */,
 			);
@@ -134,15 +145,69 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8364E07922E887BA00D7DA5B /* ModelView */ = {
+		83E3805E22EB1C8300B4D6D7 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				83E3805F22EB1C8F00B4D6D7 /* Model */,
+				83E3806022EB1CA200B4D6D7 /* ViewModel */,
+				83E3806222EB1CE500B4D6D7 /* Service */,
+				83E3806122EB1CCB00B4D6D7 /* Controller */,
+				83E3806422EB1D6F00B4D6D7 /* Posts.storyboard */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		83E3805F22EB1C8F00B4D6D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83E3806822EB252D00B4D6D7 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		83E3806022EB1CA200B4D6D7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				83E3806A22EB267100B4D6D7 /* PostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		83E3806122EB1CCB00B4D6D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				83E3807222EB2F5A00B4D6D7 /* Cell */,
+				83E3807022EB26AE00B4D6D7 /* PostViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		83E3806222EB1CE500B4D6D7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				83E3806322EB1D3700B4D6D7 /* Factory */,
+				83E3806C22EB268600B4D6D7 /* PostService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		83E3806322EB1D3700B4D6D7 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				83E3806E22EB269B00B4D6D7 /* PostRequestFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		83E3806722EB24EE00B4D6D7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				832A642122E89B3F00495DF7 /* UserViewModel.swift */,
 			);
-			path = ModelView;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		8364E07A22E8882B00D7DA5B /* Cell */ = {
+		83E3807222EB2F5A00B4D6D7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -172,6 +237,7 @@
 			children = (
 				F66C789A22D8BC87001B5FDA /* Application */,
 				832A642E22E9DE0900495DF7 /* Auth */,
+				83E3805E22EB1C8300B4D6D7 /* Posts */,
 				F66C789422D8BC4D001B5FDA /* Info.plist */,
 				F66C789122D8BC4D001B5FDA /* LaunchScreen.storyboard */,
 			);
@@ -280,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E3806522EB1D6F00B4D6D7 /* Posts.storyboard in Resources */,
 				832F532922E9F7560071FC89 /* Auth.storyboard in Resources */,
 				F66C789322D8BC4D001B5FDA /* LaunchScreen.storyboard in Resources */,
 				F66C78A122D8BE32001B5FDA /* Colors.json in Resources */,
@@ -354,14 +421,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E3807122EB26AE00B4D6D7 /* PostViewController.swift in Sources */,
+				83E3806B22EB267100B4D6D7 /* PostViewModel.swift in Sources */,
 				832A642B22E9CDA700495DF7 /* SessionControl.swift in Sources */,
 				F66C78A622D8CF65001B5FDA /* Storyboards.swift in Sources */,
+				83E3806D22EB268600B4D6D7 /* PostService.swift in Sources */,
 				832A642222E89B3F00495DF7 /* UserViewModel.swift in Sources */,
 				832A642722E9CCD000495DF7 /* AuthRequestFactory.swift in Sources */,
 				F66C78A822D8CF65001B5FDA /* Colors.swift in Sources */,
+				83E3806922EB252D00B4D6D7 /* Post.swift in Sources */,
 				832A642522E9CC9800495DF7 /* AuthService.swift in Sources */,
 				F66C78AA22D8D453001B5FDA /* Assets.swift in Sources */,
 				832A642922E9CD7100495DF7 /* ScreenManager.swift in Sources */,
+				83E3806F22EB269B00B4D6D7 /* PostRequestFactory.swift in Sources */,
 				F66C788B22D8BC45001B5FDA /* LoginViewController.swift in Sources */,
 				F66C78A722D8CF65001B5FDA /* Localizable.swift in Sources */,
 				832A642D22E9DBF900495DF7 /* RegisterViewController.swift in Sources */,

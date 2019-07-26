@@ -16,4 +16,8 @@ class AuthRequestFactory {
     static func postRegister(name: String, userName: String, email: String, password: String) -> DataRequest {
         return Alamofire.request(baseUrl + "/usuario", method: .post, parameters: ["nome": name, "username": userName, "email": email, "password": password], encoding: JSONEncoding.default)
     }
+    
+    static func deleteLogout() -> DataRequest {
+        return Alamofire.request(baseUrl + "/usuario/logout", method: .delete, headers: SessionControl.headers)
+    }
 }

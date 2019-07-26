@@ -9,6 +9,8 @@ import Foundation
 internal enum L10n {
 
   internal enum Common {
+    /// Sair
+    internal static let logout = L10n.tr("Localizable", "common.logout")
     /// Ok
     internal static let ok = L10n.tr("Localizable", "common.ok")
   }

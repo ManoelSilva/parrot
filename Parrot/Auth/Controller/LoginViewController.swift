@@ -21,7 +21,15 @@ class LoginViewController: UIViewController {
         self.service = AuthService(delegate: self)
         self.loginButton.layer.cornerRadius = 5
         self.setUpRegisterLabel()
-
+        self.setUpNavigationButtons()
+    }
+    
+    func setUpRegisterLabel() {
+        self.registerLabel.isUserInteractionEnabled = true
+        self.registerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginViewController.regiterLabelAction)))
+    }
+    
+    func setUpNavigationButtons() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
@@ -31,11 +39,6 @@ class LoginViewController: UIViewController {
             !email.isEmpty && !password.isEmpty {
                 self.service.postLogin(email: email, password: password)
         }
-    }
-    
-    func setUpRegisterLabel() {
-        self.registerLabel.isUserInteractionEnabled = true
-        self.registerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginViewController.regiterLabelAction)))
     }
     
     @objc func regiterLabelAction() {

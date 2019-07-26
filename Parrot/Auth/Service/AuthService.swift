@@ -26,6 +26,13 @@ class AuthService {
         AuthRequestFactory.postLogin(email: email, password: password).validate().responseObject { (response: DataResponse<User>) in
             switch response.result {
                 case .success:
+                    if let user = response.result.value {
+                        if let token = response.response?.allHeaderFields["token"] as? String {
+                            user.token = token
+                            UserViewModel.save(user: user)
+                            SessionControl.setHeaders()
+                        }
+                    }
                     self.delegate.success()
                 case .failure(let error):
                     self.delegate.failure(error: error.localizedDescription)
@@ -37,8 +44,28 @@ class AuthService {
         AuthRequestFactory.postRegister(name: name, userName: userName, email: email, password: password).validate().responseObject { (response: DataResponse<User>) in
             switch response.result {
                 case .success:
+                    if let user = response.result.value {
+                        if let token = response.response?.allHeaderFields["token"] as? String {
+                            user.token = token
+                            UserViewModel.save(user: user)
+                            SessionControl.setHeaders()
+                        }
+                    }
                     self.delegate.success()
                 case .failure(let error):
+                    self.delegate.failure(error: error.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteLogout() {
+        AuthRequestFactory.deleteLogout().validate().responseObject { (response: DataResponse<User>) in
+            switch response.result {
+                case .success:
+                    UserViewModel.delete()
+                    self.delegate.success()
+                case .failure(let error):
+                    UserViewModel.delete()
                     self.delegate.failure(error: error.localizedDescription)
             }
         }

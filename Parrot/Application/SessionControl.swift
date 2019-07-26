@@ -14,10 +14,7 @@ class SessionControl {
         return uiRealm.objects(User.self).first
     }
     static var isSessionActive: Bool {
-        if self.user != nil {
-            return true
-        }
-        return false
+        return self.user != nil
     }
     
     static func setHeaders() {

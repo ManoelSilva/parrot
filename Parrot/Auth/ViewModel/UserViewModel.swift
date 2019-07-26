@@ -19,4 +19,16 @@ class UserViewModel {
             uiRealm.add(user, update: .all)
         }
     }
+    
+    static func delete() {
+        
+        try? uiRealm.write {
+            uiRealm.deleteAll()
+        }
+//        if let result = uiRealm.objects(User.self).first {
+//            try? uiRealm.write {
+//                uiRealm.delete(result)
+//            }
+//        }
+    }
 }

@@ -67,6 +67,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIViewController>(storyboard: LaunchScreen.self)
   }
+  internal enum Posts: StoryboardType {
+    internal static let storyboardName = "Posts"
+
+    internal static let postViewController = SceneType<Parrot.PostViewController>(storyboard: Posts.self, identifier: "PostViewController")
+  }
 }
 
 internal enum StoryboardSegue {
