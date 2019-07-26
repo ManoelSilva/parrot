@@ -22,35 +22,63 @@ class PostService {
         self.delegate = delegate
     }
     
-//    func getPost() {
-//        ContatosRequestFactory.getContatos().validate().responseArray { (response: DataResponse<[Contato]>) in
-//            switch response.result {
-//                case .success:
-//                    if let contatos = response.result.value {
-//                        ContatoViewModel.saveAll(objects: contatos, clear: true)
-//                    }
-//                    self.delegate.success()
-//                case .failure(let error):
-//                    self.delegate.failure(error: error.localizedDescription)
-//            }
-//        }
-//    }
-//
-//    func postPost(contatoView: ContatoView) {
-//        let contato = ContatoViewModel.getAsModel(contatoView: contatoView)
-//        ContatosRequestFactory.postContato(contato: contato).validate().responseObject { (response: DataResponse<Contato>) in
-//            switch response.result {
-//                case .success:
-//
-//                    if let contato = response.result.value {
-//                        ContatoViewModel.saveAll(objects: [contato])
-//                    }
-//                    self.delegate.success()
-//
-//                case .failure(let error):
-//
-//                    self.delegate.failure(error: error.localizedDescription)
-//            }
-//        }
-//    }
+    func getPosts(page: Int) {
+        PostRequestFactory.getPosts(page: page).validate()
+            .responseArray { (response: DataResponse<[Post]>) in
+                switch response.result {
+                    case .success:
+                        if let posts = response.result.value {
+                            PostViewModel.saveAll(posts: posts)
+                        }
+                        self.delegate.success()
+                    case .failure(let error):
+                        self.delegate.failure(error: error.localizedDescription)
+                }
+        }
+    }
+    
+    func postCreateNewPost(post: String) {
+        PostRequestFactory.postCreateNewPost(post: post).validate()
+            .responseObject { (response: DataResponse<Post>) in
+                switch response.result {
+                    case .success:
+                        if let post = response.result.value {
+                            PostViewModel.save(post: post)
+                        }
+                        self.delegate.success()
+                    case .failure(let error):
+                        self.delegate.failure(error: error.localizedDescription)
+                }
+        }
+    }
+    
+    func putUpdatePost(post: Post) {
+        PostRequestFactory.putUpdatePost(post: post).validate()
+            .responseObject { (response: DataResponse<Post>) in
+                switch response.result {
+                    case .success:
+                        if let post = response.result.value {
+                            PostViewModel.update(post: post)
+                        }
+                        self.delegate.success()
+                    case .failure(let error):
+                        self.delegate.failure(error: error.localizedDescription)
+                }
+        }
+    }
+    
+    func deletePost(post: Post) {
+        PostRequestFactory.deletePost(post: post).validate()
+            .responseObject { (response: DataResponse<Post>) in
+                switch response.result {
+                    case .success:
+                        if let post = response.result.value {
+                            PostViewModel.delete(post: post)
+                        }
+                        self.delegate.success()
+                    case .failure(let error):
+                        self.delegate.failure(error: error.localizedDescription)
+                }
+        }
+    }
 }

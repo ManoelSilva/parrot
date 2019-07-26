@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PostViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
@@ -15,12 +16,19 @@ class PostViewController: UIViewController {
     
     var authService: AuthService!
     var service: PostService!
+    var posts: [PostView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.authService = AuthService(delegate: self)
         self.userPostTextView.layer.cornerRadius = 10
         self.setupLogoutButton()
+        
+        self.postsTableView.delegate = self
+        self.postsTableView.dataSource = self
+        
+        self.postsTableView.register(cellType: PostTableViewCell.self)
+        self.postsTableView.estimatedRowHeight = 500
     }
     
     func setupLogoutButton() {
@@ -43,5 +51,21 @@ extension PostViewController: AuthServiceDelegate {
     func failure(error: String) {
         print(error)
         ScreenManager.setUpInitViewController()
+    }
+}
+
+extension PostViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
+        cell.bind(post: self.posts[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
