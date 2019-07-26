@@ -11,8 +11,8 @@ import Alamofire
 import AlamofireObjectMapper
 
 protocol PostServiceDelegate {
-    func success()
-    func failure(error: String)
+    func postServiceSuccess()
+    func postServiceFailure(error: String)
 }
 
 class PostService {
@@ -30,9 +30,9 @@ class PostService {
                         if let posts = response.result.value {
                             PostViewModel.saveAll(posts: posts)
                         }
-                        self.delegate.success()
+                        self.delegate.postServiceSuccess()
                     case .failure(let error):
-                        self.delegate.failure(error: error.localizedDescription)
+                        self.delegate.postServiceFailure(error: error.localizedDescription)
                 }
         }
     }
@@ -45,9 +45,9 @@ class PostService {
                         if let post = response.result.value {
                             PostViewModel.save(post: post)
                         }
-                        self.delegate.success()
+                        self.delegate.postServiceSuccess()
                     case .failure(let error):
-                        self.delegate.failure(error: error.localizedDescription)
+                        self.delegate.postServiceFailure(error: error.localizedDescription)
                 }
         }
     }
@@ -60,9 +60,9 @@ class PostService {
                         if let post = response.result.value {
                             PostViewModel.update(post: post)
                         }
-                        self.delegate.success()
+                        self.delegate.postServiceSuccess()
                     case .failure(let error):
-                        self.delegate.failure(error: error.localizedDescription)
+                        self.delegate.postServiceFailure(error: error.localizedDescription)
                 }
         }
     }
@@ -75,9 +75,9 @@ class PostService {
                         if let post = response.result.value {
                             PostViewModel.delete(post: post)
                         }
-                        self.delegate.success()
+                        self.delegate.postServiceSuccess()
                     case .failure(let error):
-                        self.delegate.failure(error: error.localizedDescription)
+                        self.delegate.postServiceFailure(error: error.localizedDescription)
                 }
         }
     }

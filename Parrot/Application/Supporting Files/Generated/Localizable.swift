@@ -9,6 +9,8 @@ import Foundation
 internal enum L10n {
 
   internal enum Common {
+    /// O que vc esta sentindo?
+    internal static let feeling = L10n.tr("Localizable", "common.feeling")
     /// Sair
     internal static let logout = L10n.tr("Localizable", "common.logout")
     /// Ok

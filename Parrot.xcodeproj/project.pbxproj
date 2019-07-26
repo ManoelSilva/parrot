@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		31123B4422EB8E0D00784C7C /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31123B4222EB8E0D00784C7C /* PostTableViewCell.swift */; };
 		31123B4522EB8E0D00784C7C /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31123B4322EB8E0D00784C7C /* PostTableViewCell.xib */; };
+		31123B4722EB9A1800784C7C /* PostTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31123B4622EB9A1800784C7C /* PostTabBarViewController.swift */; };
 		832A642022E8929300495DF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832A641F22E8929300495DF7 /* Assets.xcassets */; };
 		832A642222E89B3F00495DF7 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832A642122E89B3F00495DF7 /* UserViewModel.swift */; };
 		832A642522E9CC9800495DF7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832A642422E9CC9800495DF7 /* AuthService.swift */; };
@@ -40,6 +41,7 @@
 		08867C8207311481E6B791B1 /* Pods-Treinamento-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Treinamento-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Treinamento-iOS/Pods-Treinamento-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		31123B4222EB8E0D00784C7C /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		31123B4322EB8E0D00784C7C /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		31123B4622EB9A1800784C7C /* PostTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTabBarViewController.swift; sourceTree = "<group>"; };
 		45199C50E1D69545D0081FCB /* Pods_Parrot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parrot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A03267163289238BD35F41 /* Pods-Parrot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parrot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parrot/Pods-Parrot.debug.xcconfig"; sourceTree = "<group>"; };
 		832A641F22E8929300495DF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				31123B4122EB8DF200784C7C /* Cell */,
 				83E3807022EB26AE00B4D6D7 /* PostViewController.swift */,
+				31123B4622EB9A1800784C7C /* PostTabBarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				F66C78A622D8CF65001B5FDA /* Storyboards.swift in Sources */,
 				83E3806D22EB268600B4D6D7 /* PostService.swift in Sources */,
 				31123B4422EB8E0D00784C7C /* PostTableViewCell.swift in Sources */,
+				31123B4722EB9A1800784C7C /* PostTabBarViewController.swift in Sources */,
 				832A642222E89B3F00495DF7 /* UserViewModel.swift in Sources */,
 				832A642722E9CCD000495DF7 /* AuthRequestFactory.swift in Sources */,
 				F66C78A822D8CF65001B5FDA /* Colors.swift in Sources */,

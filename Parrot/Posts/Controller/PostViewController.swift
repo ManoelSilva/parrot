@@ -13,6 +13,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userPostTextView: UITextView!
     @IBOutlet weak var postsTableView: UITableView!
+    @IBOutlet weak var userPostView: UITextView!
     
     var authService: AuthService!
     var service: PostService!
@@ -21,7 +22,9 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.authService = AuthService(delegate: self)
-        self.userPostTextView.layer.cornerRadius = 10
+        self.service = PostService(delegate: self)
+        
+        self.userPostView.layer.cornerRadius = 10
         self.setupLogoutButton()
         
         self.postsTableView.delegate = self
@@ -29,6 +32,8 @@ class PostViewController: UIViewController {
         
         self.postsTableView.register(cellType: PostTableViewCell.self)
         self.postsTableView.estimatedRowHeight = 500
+        
+        self.loadData()
     }
     
     func setupLogoutButton() {
@@ -41,6 +46,17 @@ class PostViewController: UIViewController {
     @objc func logout() {
         self.authService.deleteLogout()
     }
+    
+    func loadData(){
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.show()
+        self.service.getPosts(page: 1)
+    }
+    
+    func setTextFieldPlaceholder() {
+        self.userPostTextView.text = L10n.Common.feeling
+        self.userPostTextView.textColor = UIColor.lightGray
+    }
 }
 
 extension PostViewController: AuthServiceDelegate {
@@ -51,6 +67,19 @@ extension PostViewController: AuthServiceDelegate {
     func failure(error: String) {
         print(error)
         ScreenManager.setUpInitViewController()
+    }
+}
+
+extension PostViewController: PostServiceDelegate {
+    func postServiceSuccess() {
+        self.posts = PostViewModel.getPosts()
+        self.postsTableView.reloadData()
+        SVProgressHUD.dismiss()
+    }
+    
+    func postServiceFailure(error: String) {
+        print(error)
+        SVProgressHUD.dismiss()
     }
 }
 
