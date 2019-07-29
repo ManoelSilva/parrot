@@ -2,7 +2,6 @@ import UIKit
 import Reusable
 
 class PostTableViewCell: UITableViewCell, NibReusable {
-
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var ownerProfileImageView: UIImageView!
     @IBOutlet weak var userLabel: UILabel!

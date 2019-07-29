@@ -11,7 +11,7 @@ import Alamofire
 
 class PostRequestFactory {
     static func postCreateNewPost(post: String) -> DataRequest {
-        return Alamofire.request(baseUrl + "/postagem", method: .post, parameters: ["postagem": post], encoding: JSONEncoding.default, headers: SessionControl.headers)
+        return Alamofire.request(baseUrl + "/postagem", method: .post, parameters: ["mensagem": post], encoding: JSONEncoding.default, headers: SessionControl.headers)
     }
     
     static func putUpdatePost(post: Post) -> DataRequest {

@@ -23,17 +23,12 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         self.authService = AuthService(delegate: self)
         self.service = PostService(delegate: self)
+        self.userPostView.delegate = self
         
         self.userPostView.layer.cornerRadius = 10
+        self.setupPostTableView()
         self.setupLogoutButton()
-        
-        self.postsTableView.delegate = self
-        self.postsTableView.dataSource = self
-        
-        self.postsTableView.register(cellType: PostTableViewCell.self)
-        self.postsTableView.estimatedRowHeight = 500
-        
-        self.loadData()
+        self.setTextFieldPlaceholder()
     }
     
     func setupLogoutButton() {
@@ -43,19 +38,29 @@ class PostViewController: UIViewController {
         }
     }
     
-    @objc func logout() {
-        self.authService.deleteLogout()
-    }
-    
-    func loadData(){
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.show()
-        self.service.getPosts(page: 1)
+    func setupPostTableView() {
+        self.postsTableView.delegate = self
+        self.postsTableView.dataSource = self
+        
+        self.postsTableView.register(cellType: PostTableViewCell.self)
+        self.postsTableView.estimatedRowHeight = 500
+        
+        self.loadTableViewData()
     }
     
     func setTextFieldPlaceholder() {
         self.userPostTextView.text = L10n.Common.feeling
         self.userPostTextView.textColor = UIColor.lightGray
+    }
+    
+    func loadTableViewData(){
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.show()
+        self.service.getPosts(page: 1)
+    }
+    
+    @objc func logout() {
+        self.authService.deleteLogout()
     }
 }
 
@@ -96,5 +101,29 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+extension PostViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            self.setTextFieldPlaceholder()
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            self.service.postCreateNewPost(post: self.userPostView.text)
+            self.setTextFieldPlaceholder()
+        }
+        return true
     }
 }
