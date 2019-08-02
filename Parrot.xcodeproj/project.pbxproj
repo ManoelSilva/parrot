@@ -267,8 +267,8 @@
 		F66C789B22D8BDA4001B5FDA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F66C789D22D8BDF1001B5FDA /* Generated */,
 				F66C789C22D8BDE3001B5FDA /* Generators */,
+				F66C789D22D8BDF1001B5FDA /* Generated */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";

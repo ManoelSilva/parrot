@@ -22,22 +22,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8d-7n-fLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1914" y="-141"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ngz-Ko-p7R">
-            <objects>
-                <viewController id="1Ii-IP-vYh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hUL-fG-p8o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="jrh-Rr-PLN"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EBZ-Nh-Ot2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-857" y="-141"/>
+            <point key="canvasLocation" x="-565" y="-141"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="ebW-lc-LTs">
