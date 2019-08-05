@@ -12,9 +12,9 @@ import ObjectMapper
 
 class Post: Object, Mappable {
     var id = RealmOptional<Int>()
-    var user = User()
     var likes = RealmOptional<Int>()
     
+    @objc dynamic var user: User?
     @objc dynamic var post: String?
     @objc dynamic var message: String?
     @objc dynamic var image: String?

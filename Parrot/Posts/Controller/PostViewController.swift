@@ -25,6 +25,7 @@ class PostViewController: UIViewController {
         self.service = PostService(delegate: self)
         self.userPostView.delegate = self
         
+        self.userImageView.image = Asset.defaultUser.image
         self.userPostView.layer.cornerRadius = 10
         self.setupPostTableView()
         self.setupLogoutButton()

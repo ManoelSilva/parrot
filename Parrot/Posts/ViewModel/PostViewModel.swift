@@ -68,7 +68,7 @@ class PostViewModel {
         var postView = PostView()
         postView.id = post.id.value ?? 0
         postView.likes = post.likes.value ?? 0
-        postView.user = post.user
+        postView.user = post.user ?? User()
         postView.message = post.message ?? ""
         return postView
     }

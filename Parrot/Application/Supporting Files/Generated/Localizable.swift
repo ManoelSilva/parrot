@@ -11,6 +11,8 @@ internal enum L10n {
   internal enum Common {
     /// O que vc esta sentindo?
     internal static let feeling = L10n.tr("Localizable", "common.feeling")
+    /// @
+    internal static let identifier = L10n.tr("Localizable", "common.identifier")
     /// Sair
     internal static let logout = L10n.tr("Localizable", "common.logout")
     /// Ok

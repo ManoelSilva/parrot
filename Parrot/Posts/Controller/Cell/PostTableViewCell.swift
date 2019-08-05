@@ -9,14 +9,12 @@ class PostTableViewCell: UITableViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         self.ownerProfileImageView.layer.cornerRadius = self.ownerProfileImageView.frame.height / 2
-//        self.ownerProfileImageView.image = Asset.ownerDefault.image
     }
 
     func bind(post: PostView) {
-//        self.postImageView.image = Asset.postDefault.image
-        self.userLabel.text = post.user.name
+        self.ownerProfileImageView.image = Asset.defaultUser.image
+        self.userLabel.text = L10n.Common.identifier + post.user.userName!
         self.messageLabel.text = post.message
     }
 }

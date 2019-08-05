@@ -1,4 +1,4 @@
-platform :ios, '11'
+platform :ios, '10.0'
 
 target 'Parrot' do
 
@@ -13,6 +13,4 @@ target 'Parrot' do
   pod 'Reusable', '= 4.0.2'
   pod 'SVProgressHUD', '= 2.2.5'
   pod 'SwiftGen', '= 5.3.0'
-  pod 'MapboxSceneKit', :git => 'https://github.com/mapbox/mapbox-scenekit.git'
-  pod 'MapboxMobileEvents'
 end
