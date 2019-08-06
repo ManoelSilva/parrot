@@ -96,7 +96,7 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
-        cell.bind(post: self.posts[indexPath.row])
+        cell.bind(post: self.posts[indexPath.row], delegate: self)
         return cell
     }
     
@@ -126,5 +126,31 @@ extension PostViewController: UITextViewDelegate {
             self.setTextFieldPlaceholder()
         }
         return true
+    }
+}
+
+extension PostViewController: PostTableViewCellDelegate {
+    func tapedDots(post: PostView!) {
+        let postOptionsController = UIAlertController(title: L10n.Common.post, message: nil, preferredStyle: .actionSheet)
+        
+        let editAction = UIAlertAction(title: L10n.Common.edit, style: .default, handler: nil)
+        let deleteAction = UIAlertAction(title: L10n.Common.delete, style: .default){ (action) in
+            self.service.deletePost(post: post)
+        }
+        let cancelAction = UIAlertAction(title: L10n.Common.logout, style: .default, handler: nil)
+//        {(action) in
+//            print("The User Will Be Taken To the Settings")
+//            let goToSettings = URL(string: UIApplication.openSettingsURLString)
+//            UIApplication.shared.open(goToSettings!)
+//        }
+        postOptionsController.addAction(editAction)
+        postOptionsController.addAction(deleteAction)
+        postOptionsController.addAction(cancelAction)
+        
+        self.present(postOptionsController, animated: true, completion: nil)
+    }
+    
+    func tapedLike(post: PostView!) {
+        
     }
 }

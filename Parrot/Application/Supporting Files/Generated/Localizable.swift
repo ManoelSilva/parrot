@@ -9,6 +9,10 @@ import Foundation
 internal enum L10n {
 
   internal enum Common {
+    /// Deletar
+    internal static let delete = L10n.tr("Localizable", "common.delete")
+    /// Editar
+    internal static let edit = L10n.tr("Localizable", "common.edit")
     /// O que vc esta sentindo?
     internal static let feeling = L10n.tr("Localizable", "common.feeling")
     /// @
@@ -17,6 +21,8 @@ internal enum L10n {
     internal static let logout = L10n.tr("Localizable", "common.logout")
     /// Ok
     internal static let ok = L10n.tr("Localizable", "common.ok")
+    /// Postagem
+    internal static let post = L10n.tr("Localizable", "common.post")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name

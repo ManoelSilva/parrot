@@ -36,7 +36,11 @@ class PostViewModel {
     }
     
     static func delete(post: Post) {
-        uiRealm.delete(post)
+        if let post = uiRealm.object(ofType: Post.self, forPrimaryKey: post.id) {
+            try? uiRealm.write {
+                uiRealm.delete(post)
+            }
+        }
     }
     
     static func deleteAll() {
@@ -84,6 +88,8 @@ class PostViewModel {
     
     static func getAsModel(postView: PostView) -> Post {
         let post = Post()
+        post.user = postView.user
+        post.id.value = postView.id
         post.message = postView.message
         
         return post

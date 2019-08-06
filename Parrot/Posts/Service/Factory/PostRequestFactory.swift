@@ -23,8 +23,8 @@ class PostRequestFactory {
         return Alamofire.request(baseUrl + "/postagem?pagina=" + String(page), method: .get, headers: SessionControl.headers)
     }
     
-    static func deletePost(post: Post) -> DataRequest {
-        let id = String(post.id.value ?? 0)
+    static func deletePost(id: Int) -> DataRequest {
+        let id = String(id)
         return Alamofire.request(baseUrl + "/postagem/" + id, method: .delete, encoding: JSONEncoding.default, headers: SessionControl.headers)
     }
  }

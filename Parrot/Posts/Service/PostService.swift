@@ -67,8 +67,8 @@ class PostService {
         }
     }
     
-    func deletePost(post: Post) {
-        PostRequestFactory.deletePost(post: post).validate()
+    func deletePost(post: PostView) {
+        PostRequestFactory.deletePost(id: post.id).validate()
             .responseObject { (response: DataResponse<Post>) in
                 switch response.result {
                     case .success:
